@@ -43,3 +43,53 @@ Compilers and Interpreters :
 - Interpreter takes in source code and exectues immediately , It runs program from source. 
 - gcc and clang take your c code and compile to machine code these are compilers not interpreters . 
 - cpython is an interpreter and it has a compiler.
+
+## 3. The Lox Language
+
+Lox is the programming language designed and implemented in the book. It is a high-level, dynamically typed language with automatic memory management (garbage collection), and a familiar C-like syntax.
+
+**Data Types:**
+- **Booleans:** `true` and `false`.
+- **Numbers:** Simple double-precision floating-point numbers (`1234`, `12.34`).
+- **Strings:** Enclosed in double quotes (`"I am a string"`).
+- **Nil:** Represents "no value" (`nil`).
+
+**Expressions:**
+- **Arithmetic:** `+`, `-`, `*`, `/`. The `+` operator also concatenates strings.
+- **Comparison and Equality:** `<`, `<=`, `>`, `>=`, `==`, `!=`. Values of different types are never equivalent.
+- **Logical Operators:** Prefix `!`, infix `and`, and `or`. Like in C, `and` and `or` short-circuit.
+- **Grouping:** Uses parentheses `()` to explicitly control precedence.
+
+**Statements:**
+- **Expression Statements:** Expressions followed by a semicolon `;` promote an expression to a statement.
+- **Print Statement:** A specific `print "Hello";` statement is built-in as a hack to easily produce output without setting up a standard library.
+- **Blocks:** Curly braces `{ ... }` group multiple statements together and introduce their own scope.
+
+**Variables:**
+- Declared using the `var` keyword.
+- If not initialized explicitly, a variable defaults to `nil`.
+- Example: `var breakfast = "bagels";`
+
+**Control Flow:**
+- **If Statements:** `if (condition) { ... } else { ... }`
+- **While Loops:** `while (condition) { ... }`
+- **For Loops:** A basic C-style `for` loop (`for (var a = 1; a < 10; a = a + 1) { ... }`).
+
+**Functions:**
+- Defined using the `fun` keyword. 
+- Functions are **first-class**, meaning they can be passed as arguments, returned, and stored in variables.
+- By default, a function implicitly returns `nil` if there is no explicit `return` statement.
+- **Terminology:** An *argument* is the actual value passed to a function call, while a *parameter* is the variable that holds the value inside the function.
+- **Closures:** Functions "close over" and hold onto references of surrounding variables they use, keeping them an active part of memory even after the outer function has returned.
+
+**Classes and Object Orientation:**
+- Lox is class-based (rather than prototype-based like JavaScript).
+- **Classes:** Declared using the `class` keyword.
+- **Instances:** Created by calling the class itself like a function (e.g., `var myInstance = Breakfast();`).
+- **Fields:** Properties can be dynamically added to or accessed on objects (e.g., `myInstance.meat = "sausage";`).
+- **`this`:** A keyword used within methods to refer to the current object.
+- **Initialization:** An `init()` method functions as the class constructor if present.
+- **Inheritance:** Single inheritance is supported using the `<` operator (`class Brunch < Breakfast`). Superclass methods can be accessed via `super`.
+
+**Standard Library:**
+- Intentionally minimal (almost non-existent). It includes only a `clock()` function to track time for benchmarking and the `print` statement.
